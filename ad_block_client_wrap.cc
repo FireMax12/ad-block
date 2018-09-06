@@ -231,6 +231,7 @@ void AdBlockClientWrap::Parse(const FunctionCallbackInfo<Value>& args) {
 }
 
 void AdBlockClientWrap::Matches(const FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = args.GetIsolate();
   String::Utf8Value str(args[0]->ToString());
   const char * buffer = *str;
   int32_t filterOption = static_cast<FilterOption>(args[1]->Int32Value());
